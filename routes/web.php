@@ -32,10 +32,9 @@ Route::resource('/animals', AnimalController::class);
 
 Route::post('/animals/reset', [AnimalController::class, 'reset'])->name('animals.reset');
 
-
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
-// })->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', function () {
+    return redirect()->route('animals.index');
+})->middleware('auth')->name('dashboard');
 
 // Route::middleware('auth')->group(function () {
 //     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
